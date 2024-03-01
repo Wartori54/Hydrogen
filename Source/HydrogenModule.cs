@@ -49,11 +49,10 @@ namespace Celeste.Mod.Hydrogen {
         }
 
         public override void Unload() {
-            // TODO: unapply any hooks applied in Load()
             On.Celeste.Celeste.Update -= SpeedManipulator.Celeste_Update;
             GameBeginDrawHook?.Dispose();
             IL.Celeste.LevelLoader.LoadingThread -= PerfStatsOSD.hook_LevelLoader_LoadingThread;
-            Optimizations.Optimizations.SwitchTo(-1); // this disables everthing
+            Optimizations.Optimizations.SwitchTo(-1); // this disables everything
         }
 
         public static void LogAllInstrs(ILCursor il) {

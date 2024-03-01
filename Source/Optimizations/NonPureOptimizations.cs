@@ -97,6 +97,9 @@ public static class NonPureOptimizations {
         }
     }
 
+    /// <summary>
+    /// Disables DiscordSDK on non frame updates
+    /// </summary>
     public class SlowDownDiscordSDK : Optimizations.IOptimization {
         // Lie, but no practical difference either
         public bool Pure => true;
@@ -121,6 +124,9 @@ public static class NonPureOptimizations {
         }
     }
     
+    /// <summary>
+    /// Disables MInput on non frame updates
+    /// </summary>
     public class SlowDownMInputUpdate : Optimizations.IOptimization {
         public bool Pure => false;
         public int Level => 1;
@@ -182,7 +188,11 @@ public static class NonPureOptimizations {
             IL.Microsoft.Xna.Framework.Game.Tick -= Patch2;
         }
     }
-
+    
+    
+    /// <summary>
+    /// Only updates backdrops on frame updates, purely visual
+    /// </summary>
     public class LessenBackdropUpdates : Optimizations.IOptimization {
         public bool Pure => false;
         public int Level => 2;
@@ -200,6 +210,9 @@ public static class NonPureOptimizations {
         }
     }
 
+    /// <summary>
+    /// Only updates animated tiles on frame updates, purely visual
+    /// </summary>
     public class LessenAnimatedTilesUpdate : Optimizations.IOptimization {
         public bool Pure => false;
         public int Level => 2;
@@ -217,6 +230,10 @@ public static class NonPureOptimizations {
         }
     }
 
+    /// <summary>
+    /// Only updates particles on frame updates, and only emits them on frame updates
+    /// Purely visual
+    /// </summary>
     public class LessenParticles : Optimizations.IOptimization {
         public bool Pure => false;
         public int Level => 3;
@@ -306,6 +323,9 @@ public static class NonPureOptimizations {
         }
     }
     
+    /// <summary>
+    /// Slows down the FrameworkDispatcher updates since that has no effect on the game loop
+    /// </summary>
     public class LessenFrameworkDispatcherUpdates : Optimizations.IOptimization {
         public bool Pure => false;
         public int Level => 3;
@@ -323,6 +343,9 @@ public static class NonPureOptimizations {
         }
     }
     
+    /// <summary>
+    /// Only updates spinner hue on frame updates, purely visual
+    /// </summary>
     public class SlowDownCrystalSpinnerHueUpdate : Optimizations.IOptimization {
         public bool Pure => false;
         public int Level => 2;
@@ -340,6 +363,9 @@ public static class NonPureOptimizations {
         }
     }
     
+    /// <summary>
+    /// Only recalculates size on frame updates
+    /// </summary>
     public class SlowDownMeasureBirdTutorialGui : Optimizations.IOptimization {
         public bool Pure => false;
         public int Level => 3;
@@ -357,6 +383,9 @@ public static class NonPureOptimizations {
         }
     }
     
+    /// <summary>
+    /// Updates the audio position on frame updates, keeping the latest assigned position
+    /// </summary>
     public class OptimizeAudioPosition : Optimizations.IOptimization {
         public bool Pure => false;
         public int Level => 3;

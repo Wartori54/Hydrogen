@@ -1,13 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using AsmResolver.PE.File.Headers;
 using Microsoft.Xna.Framework;
 using MonoMod.RuntimeDetour;
 using MonoMod.Utils;
 
 namespace Celeste.Mod.Hydrogen.Optimizations;
 
+/// <summary>
+/// Optimizations that have no side effects and are beneficial everywhere.
+/// Currently none because apparently Celeste is not that slow (or the optimizations require changes on the game behavior)
+/// </summary>
 public static class PureOptimizations {
     public class PlayerUpdateChaserStates : Optimizations.IOptimization {
         public bool Pure => true;

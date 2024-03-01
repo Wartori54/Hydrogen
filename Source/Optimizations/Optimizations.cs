@@ -24,14 +24,11 @@ public static class Optimizations {
         new NonPureOptimizations.SlowDownCrystalSpinnerHueUpdate(),
         new NonPureOptimizations.SlowDownMeasureBirdTutorialGui(),
         new NonPureOptimizations.OptimizeAudioPosition(),
-        new PureOptimizations.PlayerUpdateChaserStates(),
+        // new PureOptimizations.PlayerUpdateChaserStates(),
         // new PureOptimizations.GameUpdateArrayConstruction(),
-        
     ];
     
     private static readonly HashSet<IOptimization> CurrentOptimizations = [];
-    private static int currentLevel;
-    private static bool onlyPure;
 
     public static void SwitchTo(int level, bool loadOnlyPure = true) {
         // Remove old
@@ -48,9 +45,6 @@ public static class Optimizations {
             optimization.Load();
             CurrentOptimizations.Add(optimization);
         }
-
-        currentLevel = level;
-        onlyPure = loadOnlyPure;
     }
 
     public static int GetMaxLevel() {
