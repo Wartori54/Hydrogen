@@ -33,8 +33,6 @@ namespace Celeste.Mod.Hydrogen {
         }
 
         public override void Load() {
-            // TODO: apply any hooks that should always be active
-
             On.Celeste.Celeste.Update += SpeedManipulator.Celeste_Update;
 
             GameBeginDrawHook = new Hook(typeof(Game).GetMethod("BeginDraw", 

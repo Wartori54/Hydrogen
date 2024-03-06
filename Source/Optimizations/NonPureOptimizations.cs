@@ -181,7 +181,6 @@ public static class NonPureOptimizations {
             labelCursor.MarkLabel(jumpLabel);
             
             cursor.Emit(OpCodes.Brfalse, jumpLabel);
-            HydrogenModule.LogAllInstrs(cursor);
         }
 
         public void Dispose() { // Use dispose pattern instead
